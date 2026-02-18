@@ -1,3 +1,11 @@
 # Write your solution here
+def longest(strings: list):
+    longest = ""
+    for string in strings:
+        if len(string) > len(longest):
+            longest = string
+    return longest
 
-started
+if __name__ == "__main__":
+    strings = ['first', 'second', 'third']
+    print(longest(strings))
