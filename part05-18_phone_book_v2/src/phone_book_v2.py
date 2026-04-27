@@ -12,7 +12,7 @@ def search(persons):
             print(persons[key])
         else:
             print("no number")
-
+#main
 def main():
     persons = {}
     while True:
