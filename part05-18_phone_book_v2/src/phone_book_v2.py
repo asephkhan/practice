@@ -2,16 +2,20 @@
 def add(persons):
     name = input("name:")
     number = input("number: ")
-    persons[name] = number
+    if name not in persons:
+        persons[name] = []
+    persons[name].append(number)
     print("ok!")
 
 def search(persons):
     name = input("name:")
-    for key in persons:
-        if name in persons:        
-            print(persons[key])
-        else:
-            print("no number")
+    if name in persons: 
+        numbers = persons[name]
+        for number in numbers:       
+            print(number)
+    else:
+        print("no number")
+
 #main
 def main():
     persons = {}
