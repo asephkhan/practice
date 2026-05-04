@@ -3,7 +3,9 @@ def add_student(students: dict, name: str ):
         students[name] = []
     
 def add_course(students: dict, name: str, course_details):
-    if name in students:
+    if course_details[0] in students[name] and course_details[1] > students[name][0][1]:
+        students[name][0][1] = (course_details)
+    elif name in students and course_details[1] > 0:            
         students[name].append(course_details)
 
 
@@ -37,6 +39,8 @@ if __name__ == "__main__":
     add_student(students, "Peter")
     add_course(students, "Peter", ("Introduction to Programming", 3))
     add_course(students, "Peter", ("Advanced Course in Programming", 2))
+    add_course(students, "Peter", ("Advanced Course in Programming", 3))
+
     print_student(students, "Peter")
     
     
