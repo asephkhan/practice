@@ -3,16 +3,21 @@ def add_student(students: dict, name: str ):
         students[name] = []
     
 def add_course(students: dict, name: str, course_details):
-    if course_details[0] in students[name] and course_details[1] > students[name][0][1]:
-        students[name][0][1] = (course_details)
-    elif name in students and course_details[1] > 0:            
+    if course_details[1] == 0:
+        return
+    for course in students[name]:
+        if course_details[0] in course and course_details[1] <= course[1]:
+            return
+        elif course_details[0] in course and course_details[1] > course[1]:
+            students[name].remove(course)
+            return students[name].append(course_details)
+    else:            
         students[name].append(course_details)
 
 
 def print_student(students: dict, name:str):
     if name in students:
         print(f"{name}:")
-
         if len(students[name]) > 0:
             print(f" {len(students[name])} completed courses:") 
             total_grade = 0       
@@ -28,6 +33,11 @@ def print_student(students: dict, name:str):
     if name not in students:
         print(f"{name}: no such person in the database")
 
+def summary(students: dict):
+    print(f"students {len(students)}")
+
+
+
 
 if __name__ == "__main__":
     students = {}
@@ -40,7 +50,15 @@ if __name__ == "__main__":
     add_course(students, "Peter", ("Introduction to Programming", 3))
     add_course(students, "Peter", ("Advanced Course in Programming", 2))
     add_course(students, "Peter", ("Advanced Course in Programming", 3))
-
     print_student(students, "Peter")
+    students = {}
+    add_student(students, "Peter")
+    add_student(students, "Eliza")
+    add_course(students, "Peter", ("Data Structures and Algorithms", 1))
+    add_course(students, "Peter", ("Introduction to Programming", 1))
+    add_course(students, "Peter", ("Advanced Course in Programming", 1))
+    add_course(students, "Eliza", ("Introduction to Programming", 5))
+    add_course(students, "Eliza", ("Introduction to Computer Science", 4))
+    summary(students)
     
     
