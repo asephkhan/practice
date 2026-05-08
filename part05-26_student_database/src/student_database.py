@@ -35,6 +35,16 @@ def print_student(students: dict, name:str):
 
 def summary(students: dict):
     print(f"students {len(students)}")
+    max_courses = 0
+    max_courses_student_name = ''
+#    best average = 0
+    for name, student_courses in students.items():
+        if student_courses > max_courses:
+            max_courses = students_courses
+            name = max_courses_student_name 
+            print(f"{name} {max_courses}")
+#print(len(students[name]))
+    
 
 
 
