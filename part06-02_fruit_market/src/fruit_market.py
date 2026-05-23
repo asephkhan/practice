@@ -5,7 +5,7 @@ def read_fruits():
         for line in new_file:
             line = line.replace("\n", "")
             parts = line.split(";")
-            fruits[parts[0]] = parts[1]
+            fruits[parts[0]] = float(parts[1])
         return fruits
 if __name__ == "__main__":
     fruit_list = read_fruits()
