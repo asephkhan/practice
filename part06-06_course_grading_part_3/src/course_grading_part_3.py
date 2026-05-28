@@ -36,7 +36,7 @@ with open(exam_points1) as new_file:
         if parts[0] == "id":
             continue
         exam_points[parts[0]] = sum(int(value) for value in parts[1:])
-print(f"{'name':30}{'exec_nbr':>10}{'exec_pts.':>10}{'exm_pts.':>10}{'tot_pts.':>10}{'grade':>10}")
+print(f"{'name':<30}{'exec_nbr':<10}{'exec_pts.':<10}{'exm_pts.':<10}{'tot_pts.':<10}{'grade':<10}")
 for student_id, exercise in exercises.items():
     if student_id in exam_points and student_id in students:
         exercise_points = exercises[student_id] // 4
@@ -53,4 +53,4 @@ for student_id, exercise in exercises.items():
             grade = 1
         else:
             grade = 0
-        print(f"{students[student_id]:30} {exercises[student_id]:<10} {exercise_points:<10} {exam_points[student_id]:<10} {total_points:<10} {grade:<10}")
+        print(f"{students[student_id]:30}{exercises[student_id]:<10}{exercise_points:<10}{exam_points[student_id]:<10}{total_points:<10}{grade:<10}")
